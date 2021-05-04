@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(2, 0, 36) url(img/bg.jpg);
+  overflow: hidden;
+}
+
+.cube {
+  position: absolute;
+  left: 80%;
+  top: 10%;
+  perspective: 1500px;
+  transform: scale(0.5);
+  z-index: -2;
+  animation: visibility 15s infinite alternate;
+}
+
+.cube-container {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotate3d(0.4, 0.5, 0.4, 60deg);
+  -webkit-animation: neon2 3.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 3.5s ease-in-out infinite alternate;
+  animation: neon2 3.5s ease-in-out infinite alternate;
+  animation: rotateCube 30s ease-in-out infinite;
+  transition: 1s ease;
+}
+
+.left-side,
+.right-side,
+.top-side,
+.bottom-side,
+.front-side,
+.bottom-side,
+.back-side {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 50%;
+  top: 50%;
+  color: #fff;
+  font-size: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(14, 25, 53, 0.5);
+  border: 6px dashed rgb(56, 243, 243);
+  user-select: none;
+}
+
+.left-side {
+  transform: translate(calc(50% - 45px), -50%) rotateY(90deg) rotateY(180deg);
+}
+
+.right-side {
+  transform: translate(calc(50% - 15px), -50%) rotateY(90deg);
+}
+.top-side {
+  transform: translate(-50%, calc(50% - 45px)) rotateX(90deg) rotateY(180deg);
+}
+
+.bottom-side {
+  transform: translate(-50%, calc(50% - 15px)) rotateX(90deg) rotateY(180deg)
+    rotateZ(90deg);
+}
+
+.front-side {
+  transform: translate3d(-50%, -50%, -15px) rotateX(0deg);
+}
+
+.back-side {
+  transform: translate3d(-50%, -50%, 15px) rotateY(360deg);
+}
+
+@keyframes neon2 {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228dff,
+      0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
+  }
+  to {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
+      0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
+  }
+}
+
+@keyframes rotateCube {
+  0% {
+    transform: rotate3d(1, 1, 1, 90deg) translateZ(0px);
+  }
+  25% {
+    transform: rotate3d(1, 1, 1, 180deg) translateZ(0px);
+  }
+  50% {
+    transform: rotate3d(1, 1, 1, 90deg) translateZ(0px);
+  }
+  75% {
+    transform: rotate3d(1, 1, 1, 180deg) translateZ(0px);
+  }
+  100% {
+    transform: rotate3d(1, 1, 1, 90deg) translateZ(0px);
+  }
+}
+
+@keyframes visibility {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
