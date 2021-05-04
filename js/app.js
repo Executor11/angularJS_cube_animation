@@ -14,7 +14,7 @@ app.controller('cubesController', function($scope){
         $scope.cubesCount.push('cube');
     }
 
-    $scope.cubesConstructions = [{                                      // for ng-repeat class-names
+    $scope.cubesConstructions = [{                                      // for ng-repeat class names
         side: 'left',
         caption: 'HTML'
     }, {
@@ -28,10 +28,10 @@ app.controller('cubesController', function($scope){
         caption: 'ANGULAR'
     }, {
         side: 'top',
-        caption: 'THREE.JS'
+        caption: 'ANIMATE'
     }, {
         side: 'bottom',
-        caption: 'GSAP'
+        caption: 'JQUERY'
     }];
 
 });
